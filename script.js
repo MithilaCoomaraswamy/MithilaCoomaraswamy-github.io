@@ -1,7 +1,7 @@
 document.body.addEventListener('click', (e) => {
   // Create fart image
   const img = document.createElement('img');
-  img.src = 'https://emoji.slack-edge.com/T01234567/fart/abc123.png'; // OR your own fart image URL
+  img.src = 'farting.png'; // OR your own fart image URL
   img.className = 'fart';
   img.style.left = `${e.clientX - 50}px`;
   img.style.top = `${e.clientY - 50}px`;
