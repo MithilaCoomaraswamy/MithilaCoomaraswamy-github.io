@@ -13,6 +13,6 @@ document.body.addEventListener('click', (e) => {
   }, 1000);
 
   // Play sound
-  const fartSound = new Audio('fart.mp3');
+  const fartSound = new Audio('Cute Pop Sound Effects.mp3');
   fartSound.play();
 });
