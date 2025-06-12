@@ -1,16 +1,25 @@
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 from groq import Groq
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-client = Groq(api_key="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")
 
+# ✅ Read API key from environment variable
+api_key = os.getenv("GROQ_API_KEY")
 
-# Allow frontend requests
+# Check if the API key is set
+if not api_key:
+    raise RuntimeError("GROQ_API_KEY environment variable not set.")
+
+# Initialize Groq client
+client = Groq(api_key=api_key)
+
+# CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change to your frontend origin in production
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -26,6 +35,6 @@ async def chat(chat_request: ChatRequest):
         temperature=1,
         max_completion_tokens=1024,
         top_p=1,
-        stream=False,
+        stream=False
     )
     return {"response": completion.choices[0].message.content}
