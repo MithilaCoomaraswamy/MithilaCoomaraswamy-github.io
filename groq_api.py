@@ -4,7 +4,8 @@ from groq import Groq
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-client = Groq()
+client = Groq(api_key="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")
+
 
 # Allow frontend requests
 app.add_middleware(
