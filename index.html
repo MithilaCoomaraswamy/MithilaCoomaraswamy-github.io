@@ -126,7 +126,7 @@
   const calmingResponses = [
     "I'm here for you. Take a deep breath with me 🐾",
     "You’re doing your best, and that’s enough!",
-    "Let's do some biscuits to calm your mind 🦊✨",
+    "Let me do some biscuits on your belly to calm your mind 🦊✨",
     "Wiggle wiggle! You deserve all the happiness.",
     "Remember, it’s okay to take a break. Puppycat’s got you!",
     "Nip those mean thoughts gently, you’re wonderful."
@@ -198,6 +198,49 @@
       puppycatRespond(text);
     }, 700);
   });
+
+  async function fetchGroqResponse(userText) {
+    const messages = [
+      { role: "user", content: "hi" },
+      { role: "assistant", content: "Hello! How are you today? Is there something I can help you with, or would you like to chat?" },
+      { role: "user", content: userText }
+    ];
+
+    try {
+      const response = await fetch("http://localhost:8000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages })
+      });
+
+      if (!response.ok) throw new Error("Groq API failed");
+      const data = await response.json();
+      return data.response;
+    } catch (error) {
+      console.error("Groq API error:", error);
+      return "Hmm, I had a little trouble thinking just now. Try again?";
+    }
+  }
+
+  async function puppycatRespond(userText) {
+    if (isSelfCritical(userText)) {
+      doNipAnimation();
+      appendMessage(nipResponses[Math.floor(Math.random() * nipResponses.length)], 'bot');
+      buttWiggle();
+    } else if (userText.trim().length === 0) {
+      appendMessage("Say anything, I’m listening 🐾", 'bot');
+    } else {
+      // Placeholder while fetching
+      appendMessage("Let me think... 🤔", 'bot');
+
+      const fallbackResponse = await fetchGroqResponse(userText);
+
+      // Replace last "thinking" message with real one
+      const lastBotMsg = chatWindow.querySelector('.message.bot:last-child');
+      if (lastBotMsg) lastBotMsg.textContent = fallbackResponse;
+    }
+  }
+
 </script>
 
 </body>
