@@ -39,51 +39,6 @@
     position: relative;
   }
 
-  /* Paws and tail for GSAP animations */
-  /* We'll position simple circles for paws and tail overlay */
-  /* Positioned relative to foxAnimation container */
-  .paw {
-    position: absolute;
-    width: 38px;
-    height: 48px;
-    background: #f9d8b2;
-    border-radius: 50% 50% 70% 70% / 90% 90% 80% 80%;
-    box-shadow: inset 0 3px 5px #c9b07b;
-    cursor: default;
-  }
-  #leftPaw {
-    left: 60px;
-    bottom: 20px;
-  }
-  #rightPaw {
-    right: 60px;
-    bottom: 20px;
-  }
-
-  #tail {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: #e25822;
-    border-radius: 50% 60% 50% 50% / 100% 110% 90% 90%;
-    box-shadow: inset 0 6px 12px #b24010;
-    right: -40px;
-    bottom: 40px;
-    cursor: default;
-    overflow: hidden;
-  }
-  #tail::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 15px;
-    width: 60px;
-    height: 60px;
-    background: #fff8f0;
-    border-radius: 50% / 60%;
-    box-shadow: inset 0 2px 6px #c8b7a5;
-  }
-
   /* Chat window */
   .chat-window {
     flex: 1;
@@ -270,7 +225,7 @@
     }
   }
 
-  appendMessage("Hi! I'm your foxy puppycat friend 🦊🐾 Tell me how you're feeling.", 'bot');
+  appendMessage("Hi! I'm your puppycat 🦊🐾 Tell me how you're feeling.", 'bot');
 
   chatForm.addEventListener('submit', e => {
     e.preventDefault();
