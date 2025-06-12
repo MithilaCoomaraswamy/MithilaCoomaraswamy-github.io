@@ -202,7 +202,7 @@
   async function fetchGroqResponse(userText) {
     const messages = [
       { role: "user", content: "hi" },
-      { role: "assistant", content: "Hello! How are you today? Is there something I can help you with, or would you like to chat?" },
+      { role: "assistant", content: "Mewoof woof! How are you today? Is there something I can help you with, or would you like to chat?" },
       { role: "user", content: userText }
     ];
 
@@ -218,7 +218,7 @@
       return data.response;
     } catch (error) {
       console.error("Groq API error:", error);
-      return "Hmm, I had a little trouble thinking just now. Try again?";
+      return "Hmm, I had a little toot trouble just now. Try again?";
     }
   }
 
