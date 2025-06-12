@@ -117,47 +117,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <script>
-  // Load the fox Lottie animation
-  const foxAnimation = lottie.loadAnimation({
-    container: document.getElementById('foxAnimation'),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: 'https://assets1.lottiefiles.com/packages/lf20_syirmiva.json' // Cute fox sitting animation JSON URL
-  });
-
-  // GSAP elements
-  const leftPaw = document.getElementById('leftPaw');
-  const rightPaw = document.getElementById('rightPaw');
-  const tail = document.getElementById('tail');
-
-  // Animate tail swish (rotate back and forth)
-  function animateTailSwish() {
-    gsap.to(tail, {
-      rotation: 15,
-      duration: 0.6,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-      transformOrigin: "left center"
-    });
-  }
-
-  // Animate paws biscuits (scale up/down alternately)
-  function animateBiscuits() {
-    gsap.to([leftPaw, rightPaw], {
-      scale: 1.15,
-      duration: 0.35,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-      stagger: 0.2,
-      transformOrigin: "center bottom"
-    });
-  }
-
-  animateTailSwish();
-  animateBiscuits();
 
   // Chatbot logic
   const chatWindow = document.getElementById('chatWindow');
@@ -169,14 +128,14 @@
     "You’re doing your best, and that’s enough!",
     "Let's do some biscuits to calm your mind 🦊✨",
     "Wiggle wiggle! You deserve all the happiness.",
-    "Remember, it’s okay to take a break. Foxy puppycat’s got you!",
+    "Remember, it’s okay to take a break. Puppycat’s got you!",
     "Nip those mean thoughts gently, you’re wonderful."
   ];
 
   const nipResponses = [
-    "Hey! Be kind to yourself! Foxy puppycat’s got your back.",
+    "Hey! Be kind to yourself! Puppycat’s got your back.",
     "No nipping yourself! You're doing great 💖",
-    "Mean thoughts don’t belong here — Foxy puppycat says love yourself!",
+    "Mean thoughts don’t belong here — Puppycat says love yourself!",
   ];
 
   function isSelfCritical(text) {
