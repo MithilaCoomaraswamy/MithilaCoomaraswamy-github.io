@@ -21,7 +21,8 @@ client = Groq(api_key=api_key)
 # CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # For testing, or use ["https://peppy-hotteok-fba504.netlify.app"]
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
