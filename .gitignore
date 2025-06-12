@@ -162,7 +162,7 @@ cython_debug/
 #.idea/
 
 # Node modules
-.env/
+.env
 
 temp/
 .git/
